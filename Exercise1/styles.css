@@ -28,7 +28,11 @@ header{
     & nav{
         & ul{
             display: grid;
-            grid-template-columns: repeat(3,200px);
+            grid-template-columns: repeat(3, 200px);
         }
-    }
+    }   
 }
+
+section{
+        background-image: radial-gradient(#7f3d9e, #6d00d9);/* Pega  */
+    }
