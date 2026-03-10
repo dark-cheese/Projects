@@ -9,6 +9,7 @@ body{
     background: #000;
     color: #fff;
     font-size: 16px;
+    overflow: hidden; /* Tira o rolamento do mouse "scroll" */
 }
 header{
     position: fixed; /* Fixa posição do cabeçalho*/
@@ -19,6 +20,7 @@ header{
     align-items: center;
     grid-template-columns: 1fr 600px;
     gap: 100px;
+    z-index: 2;/* Coloca ele na frente */
 
 
     & img{
@@ -34,12 +36,49 @@ header{
 }
 
 section{
-        background-image: radial-gradient(#7f3d9e, #6d00d9);/* Pega  */
+        background-image: radial-gradient(#7f3d9e, #6d00d9);/* Criando em degrade de cores  */
         height: 100vh;
         position: relative;
+
+        & .list {
+            width: 70vw;
+            height: 100px;
+            margin: auto;
+            position: relative;
+
+            & .item {
+                position: absolute;
+                inset: 0;/* Coloca tudo com um valor x. top. bottom... */
+              
+                & .car-img {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 70%;
+
+                    & img {
+                        width: 100%;
+                        transform: rotate(-30deg);
+                    }
+
+                }
+
+                & .content{
+                    position: absolute;
+                    right: 100px;
+                    width: 70%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column; /* Coloca em colunas */
+                    justify-content: end; /* Joga tudo pro final */
+                    align-items: end;
+                }
+            }
+
+        }
     }
 
-.arrows{
+.arrows{ /* Class coloca . */
     & button{
         & img{
             width: 100px;
