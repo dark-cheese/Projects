@@ -10,7 +10,7 @@ body{
     color: #fff;
     font-size: 16px;
 }
-header img{
+header{
     position: fixed; /* Fixa posição do cabeçalho*/
     width: 80vw;
     left: 50%; /* Quando cola left, ele começa do meio pra esquerda, então não centraliza */
