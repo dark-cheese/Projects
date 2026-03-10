@@ -1,0 +1,34 @@
+*{ /* Seletor universal, ele aplica as regras de estilo a todos os elementos da página, independente do tipo */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;/* Tira as bolinhas de lista de tudo */
+}
+
+body{
+    background: #000;
+    color: #fff;
+    font-size: 16px;
+}
+header img{
+    position: fixed; /* Fixa posição do cabeçalho*/
+    width: 80vw;
+    left: 50%; /* Quando cola left, ele começa do meio pra esquerda, então não centraliza */
+    transform: translateX(-50%);/* Com o transform e translate ele se move no eixo X */
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 600px;
+    gap: 100px;
+
+
+    & img{
+        width: 250px;
+    }
+
+    & nav{
+        & ul{
+            display: grid;
+            grid-template-columns: repeat(3,200px);
+        }
+    }
+}
