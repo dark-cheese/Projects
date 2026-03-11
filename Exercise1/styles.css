@@ -1,9 +1,18 @@
 *{ /* Seletor universal, ele aplica as regras de estilo a todos os elementos da página, independente do tipo */
-    margin: 0;
+    margin: 0; 
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Faz com que o tamanho que vc define inclua tudo sem alterar o total. É como dizer "Essa caixa tem 30cm no total e tudo tem que caber dentro dela */
     list-style: none;/* Tira as bolinhas de lista de tudo */
 }
+
+/* ------ UNIDADE RELATIVAS ------ */
+/*  vw (viewport width) - largura da tela */
+/*  % - porcentagem relativa ao elemento pai */
+/*  em/rem - relativa ao tamanho da fonte  */
+/* px - é um valor absoluto, independente do tamanho da tela */
+/* vh - se adapta automaticamente ao tamanho da tela exemplo 1vh = 1% da altura da janela do navegador */
+
+
 
 body{
     background: #000;
@@ -40,9 +49,9 @@ section{
         height: 100vh;
         position: relative;
 
-        & .list {
+        & .list { /* --- BLOCO MAIOR CONTENDO IMAGEM, DESCRIÇÃO, BOTÃO --- */
             width: 70vw;
-            height: 100px;
+            height: 100vh;
             margin: auto;
             position: relative;
 
@@ -50,20 +59,20 @@ section{
                 position: absolute;
                 inset: 0;/* Coloca tudo com um valor x. top. bottom... */
               
-                & .car-img {
+                & .car-img { /* --- IMAGEM DO CARRO --- */
                     position: absolute;
                     top: 50%;
                     transform: translateY(-50%);
                     width: 70%;
 
-                    & img {
+                    & img { /* --- ROTAÇÃO DA IMAGEM DO CARRO --- */
                         width: 100%;
-                        transform: rotate(-30deg);
+                        transform: rotate(-30deg); /* Rotaciona uma imagem em graus */
                     }
 
                 }
 
-                & .content{
+                & .content { /* --- BLOCO COM FERRARI, DESCRIÇÃO, BOTAO -- */
                     position: absolute;
                     right: 100px;
                     width: 70%;
@@ -72,16 +81,94 @@ section{
                     flex-direction: column; /* Coloca em colunas */
                     justify-content: end; /* Joga tudo pro final */
                     align-items: end;
+                    gap: 20px;
+
+                    & .car-information{ /* --- UNICO DONO ---- */
+                        font-weight: bold;
+            
+                    }
+
+                    & h2 { /* -----FERRARI----- */
+                        font-size: 8em;
+                        line-height: 1em; /* Altura da linha */
+                    }
+
+                    & .description { /* --- DESCRIÇÃO ABAIXO DE FERRARI--- */
+                        color: #d9d9d9;
+                        font-size: 12px;
+                        text-align: right;
+                        max-width: 400px;
+
+                    }
+
+                    & .information{ /* ----- BOTÃO DE SAIBA MAIS ------ */
+                        border-radius: 30px; /* Arredondar a borda */
+                        height: 35px;
+                        width: 120px;
+                        text-transform: uppercase; /* Transforma a fonte para CAPSLOCK */
+                        border: 2px solid #791fd3; /* Borda roxa */
+                        background-color: #beff1b; /* Fundo em verde neon */
+                        color: #000; /* Cor da fonte */
+                        cursor: pointer; /* Cursor muda pra mãozinha quando fica em cima */
+                        font-weight: bold; /* Deixou a fonte em negrito */
+                    }
                 }
             }
 
         }
-    }
 
-.arrows{ /* Class coloca . */
-    & button{
-        & img{
-            width: 100px;
+
+    .arrows{ /* ---- SETAS ----*/
+        width: 70vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25%);
+        display: flex;
+        justify-content: space-between;
+
+
+        & button{
+            & img{
+                width: 100px;
+            }
         }
     }
+
+    .indicators { /* 01 - 02 - 03*/
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 200px;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 15px;
+
+        & .number{
+           font-size: 5em; 
+        }
+        & ul{
+            display: flex;
+            gap: 10px;
+
+            & li {
+                width: 50px;
+                height: 5px;
+                background-color: #beff1b;
+                border-radius: 5px;
+                transition: 0.5s;
+
+            }
+
+            & .active {
+                background-color: #fff;
+            }
+        }
+
+    }
+
 }
+
